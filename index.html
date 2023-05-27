@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #f1f1f1;
+            height: 100vh;
+            float: left;
+        }
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+        }
+        .menu-item {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .menu-item:hover {
+            background-color: #ddd;
+        }
+    </style>
+    <script>
+        function loadContent(url) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("content").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="menu-item"><a href="#">Dashboard</a></div>
+        <div class="menu-item"><a href="daftar.php">Daftar</a></div>
+        <div class="menu-item"><a href="survey.php">Survei</a></div>
+        <div class="menu-item"><a href="pendaftaran.php">Daftar PLN Mobile</a></div>
+        <div class="menu-item"><a href="aktivasi.php">Aktivasi Meter</a></div>
+        <div class="menu-item"><a href="sambung.php">Penyambungan Meter</a></div>
+    </div>
+    <div class="content" id="content">
+        <h1>Welcome to Dashboard</h1>
+        <p>Ini halaman dashboard</p>
+    </div>
+</body>
+</html>
