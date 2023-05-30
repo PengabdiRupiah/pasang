@@ -53,7 +53,7 @@
 
 <body>
     <div class="container">
-        <h1>Data Survei</h1>
+        <h2>Data Pelanggan untuk Daftar PLN Mobile</h2>
         <div class="wrp">
             <table class="table">
                 <thead class="thead-dark">

@@ -44,6 +44,16 @@
             top: 20px;
             right: 20px;
         }
+        img {
+            width: 30%;
+            height: 30%;
+        }
+        .logo {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 30px;
+            padding-top: 30px;
+        }
     </style>
 </head>
 
@@ -52,6 +62,9 @@
         <a href="menu.html" class="btn btn-secondary">Exit</a>
     </div>
     <div class="sidebar">
+            <div class="logo">
+            <img src="logopln.png" alt="">
+        </div>
         <a href="#">
             <div class="menu-item">Dashboard</div>
         </a>
