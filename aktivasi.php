@@ -37,22 +37,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <title>Aktivasi</title>
 </head>
 <body>
     <div class="container">
         <h1>Data Aktivasi</h1>
         <div class="wrp">
-            <table>
-                <thead>
+            <table class="table">
+                <thead class="thead-dark">
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
                         <th>Alamat</th>
                         <th>Daya</th>
                         <th>No. Telp</th>
-                        <th>File</th>
+                        <th>Download SLO</th>
                         <th>Next</th>
                     </tr>
                 </thead>
@@ -70,13 +70,13 @@
                                     <td><?= $row['no_telp']; ?></td>
                                     <td>
                                         <?php if (!empty($row['file_path'])) { ?>
-                                            <a href="<?= $row['file_path']; ?>" download>Download</a>
+                                            <a href="<?= $row['file_path']; ?>" class="btn btn-primary" download>Download</a>
                                         <?php } ?>
                                     </td>
                                     <td>
                                         <form method="POST">
                                             <input type="hidden" name="id" value="<?= $row['id']; ?>">
-                                            <input type="submit" name="next" value="Next">
+                                            <button type="submit" name="next" class="btn btn-success">Next</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -92,11 +92,12 @@
                     ?>
                 </tbody>
             </table>
-        </div
+        </div>
         <div class="show">
-            <button onclick="location.href='index.html'">BACK</button>
+            <button onclick="location.href='index.php'" class="btn btn-secondary">BACK</button>
         </div>
     </div>
-</body>
 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
 </html>

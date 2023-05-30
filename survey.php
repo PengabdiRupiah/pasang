@@ -20,29 +20,31 @@
             mysqli_query($conn, $deleteQuery);
 
             // Mengarahkan ke halaman pendaftaran.php
-            header('Location: pendaftaran.php');
+            header('Location: survey.php');
             exit;
         }
     }
 
     $query = "SELECT * FROM tb_1";
     $result = mysqli_query($conn, $query);
+
 ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Data Survey</title>
+    <title>Data Survei</title>
 </head>
 
 <body>
     <div class="container">
-        <h1>Data Survey</h1>
+        <h1>Data Survei</h1>
         <div class="wrp">
-            <table>
-                <thead>
+            <table class="table">
+                <thead class="thead-dark">
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
@@ -51,7 +53,7 @@
                         <th>No. Telp</th>
                         <th>Survei</th>
                         <th>Status</th>
-                        <th>File Path</th>
+                        <th>Upload SLO</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -72,9 +74,9 @@
                                     <td><?= $row['no_telp']; ?></td>
                                     <td>
                                         <?php if ($isSurveyed) { ?>
-                                            <button onclick="location.href='survei.php?id=<?= $row['id']; ?>'">Edit Survei</button>
+                                            <button class="btn btn-primary" onclick="location.href='survei.php?id=<?= $row['id']; ?>'">Edit Survei</button>
                                         <?php } else { ?>
-                                            <button onclick="location.href='survei.php?id=<?= $row['id']; ?>'">Survei</button>
+                                            <button class="btn btn-primary" onclick="location.href='survei.php?id=<?= $row['id']; ?>'">Survei</button>
                                         <?php } ?>
                                     </td>
                                     <td><?= $status; ?></td>
@@ -86,7 +88,7 @@
                                                 <form action="upload.php" method="POST" enctype="multipart/form-data">
                                                     <input type="hidden" name="id" value="<?= $row['id']; ?>">
                                                     <input type="file" name="file" accept=".jpg, .jpeg, .png, .pdf">
-                                                    <input type="submit" value="Upload">
+                                                    <input type="submit" class="btn btn-secondary" value="Upload">
                                                 </form>
                                             <?php } ?>
                                         <?php } ?>
@@ -95,7 +97,7 @@
                                         <?php if ($status === 'Aman' && $fileUploaded) { ?>
                                             <form action="survey.php" method="POST">
                                                 <input type="hidden" name="id" value="<?= $row['id']; ?>">
-                                                <input type="submit" value="Next">
+                                                <input type="submit" class="btn btn-primary" value="Next">
                                             </form>
                                         <?php } ?>
                                     </td>
@@ -114,7 +116,7 @@
             </table>
         </div>
         <div class="show">
-            <button onclick="location.href='index.html'">BACK</button>
+            <button class="btn btn-secondary" onclick="location.href='index.php'">BACK</button>
         </div>
     </div>
 </body>

@@ -34,7 +34,7 @@
             mysqli_query($conn, $deleteQuery);
 
             // Mengarahkan ke halaman aktivasi.php
-            header('Location: aktivasi.php');
+            header('Location: pendaftaran.php');
             exit;
         }
     }
@@ -47,22 +47,23 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
-    <title>Data Survey</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Pasang Baru</title>
 </head>
 
 <body>
     <div class="container">
-        <h1>Data Survey</h1>
+        <h1>Data Survei</h1>
         <div class="wrp">
-            <table>
-                <thead>
+            <table class="table">
+                <thead class="thead-dark">
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
                         <th>Alamat</th>
                         <th>Daya</th>
                         <th>No. Telp</th>
+                        <th>Download SLO</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -79,12 +80,15 @@
                                     <td><?= $row['daya']; ?></td>
                                     <td><?= $row['no_telp']; ?></td>
                                     <td>
+
                                         <?php if (!empty($row['file_path'])) { ?>
-                                            <a href="<?= $row['file_path']; ?>" download>Download</a>
-                                        <?php } ?>
+                                            <a href="<?= $row['file_path']; ?>" class="btn btn-primary" download>Download</a>
+                                            <?php } ?>
+                                    </td>
+                                    <td>
                                         <form method="POST" action="pendaftaran.php" style="display: inline;">
                                             <input type="hidden" name="id" value="<?= $row['id']; ?>">
-                                            <button type="submit">Next</button>
+                                            <button type="submit" class="btn btn-success">Next</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -102,7 +106,7 @@
             </table>
         </div>
         <div class="show">
-            <button onclick="location.href='index.html'">BACK</button>
+            <button onclick="location.href='index.php'" class="btn btn-secondary">BACK</button>
         </div>
     </div>
 </body>

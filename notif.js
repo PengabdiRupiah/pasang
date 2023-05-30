@@ -13,6 +13,7 @@ document.getElementById("MyForm").addEventListener("submit", function(event) {
                 // Respon berhasil diterima
                 console.log(xhr.responseText);
                 alert("Data berhasil disubmit!");
+    
                 // Atur tindakan apa pun yang perlu dilakukan setelah pengiriman berhasil
             } else {
                 // Terjadi kesalahan dalam permintaan
